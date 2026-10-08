@@ -397,15 +397,11 @@ document.addEventListener('DOMContentLoaded', () => {
         evadeCount++;
         playTone(300, 'square', 0.1, 0.05);
 
-        // Calculate safe random coordinates inside the arena
-        const arenaRect = decisionArena.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
-
-        const maxX = Math.max(0, arenaRect.width - btnRect.width - 20);
-        const maxY = Math.max(0, arenaRect.height - btnRect.height - 20);
-
-        const randomX = (Math.random() - 0.5) * maxX;
-        const randomY = (Math.random() - 0.5) * maxY;
+        // Calculate safe random coordinates inside the arena for mobile screen
+        const arenaWidth = decisionArena.clientWidth || 300;
+        const maxOffset = Math.min(80, arenaWidth * 0.28);
+        const randomX = (Math.random() - 0.5) * (maxOffset * 2);
+        const randomY = (Math.random() - 0.5) * 70;
 
         noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
 
