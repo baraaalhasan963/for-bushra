@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لبشرى من براء.. اعتذار من القلب 🤍</title>
+    <meta name="description" content="رسالة اعتذار تفاعلية من براء لحبيبته بشرى - براء آسف إنو زعلك باللهجة السورية العامية">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Marhey:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Canvas for Particles and Jasmine Petals -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Ambient Music Control -->
+    <div class="audio-control" id="audioControl" title="تشغيل / كتم اللحن الرومانسي">
+        <button id="toggleAudioBtn" aria-label="التحكم بالصوت">
+            <span class="music-icon">🎵</span>
+            <span class="music-bars">
+                <i></i><i></i><i></i><i></i>
+            </span>
+            <span class="audio-text" id="audioStatusText">شغّلي اللحن 🎼</span>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        <!-- Progress Stepper -->
+        <nav class="stepper-nav" aria-label="مراحل الرسالة">
+            <div class="step-indicator active" data-step="1"><span>💌</span><small>المغلف</small></div>
+            <div class="step-line"></div>
+            <div class="step-indicator" data-step="2"><span>🥺</span><small>الاعتذار</small></div>
+            <div class="step-line"></div>
+            <div class="step-indicator" data-step="3"><span>🤍</span><small>الوعود</small></div>
+            <div class="step-line"></div>
+            <div class="step-indicator" data-step="4"><span>💐</span><small>الورد</small></div>
+            <div class="step-line"></div>
+            <div class="step-indicator" data-step="5"><span>💖</span><small>القرار</small></div>
+        </nav>
+
+        <!-- STAGE 1: The Sealed Envelope -->
+        <section class="stage-section active" id="stage1">
+            <div class="card glass-card envelope-stage">
+                <div class="badge-tag">رسالة حب واعتذار 🌸</div>
+                <h1 class="main-title">لـ ياسمينة قلبي <span class="highlight-name">بشرى</span></h1>
+                <p class="subtitle">في حكي واقف بحلقي وقلبي مو مرتاح أبداً.. وصلتك رسالة خاصة من براء</p>
+
+                <div class="envelope-wrapper" id="envelopeWrapper">
+                    <div class="envelope" id="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-pocket"></div>
+                        <div class="envelope-letter">
+                            <span class="letter-preview-heart">❤️</span>
+                            <p class="letter-text-preview">براء آسف ومحروق قلبه..</p>
+                        </div>
+                        <div class="wax-seal" id="waxSeal">
+                            <span>B&B</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-box">
+                    <button class="btn btn-primary pulse-btn" id="openEnvelopeBtn">
+                        <span class="btn-icon">💌</span> افتحي الرسالة يا عمري
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 2: Heartfelt Syrian Apology -->
+        <section class="stage-section" id="stage2">
+            <div class="card glass-card">
+                <div class="badge-tag">اعتراف واعتذار من صميم القلب 🥺</div>
+                <h2 class="section-title">يا روحي يا <span class="highlight-name">بشرى</span>..</h2>
+                <h3 class="syrian-quote">"براء آسف من كل قلبه إنو زعّلك وغيّر ضحكتك الحلوة.."</h3>
+
+                <div class="speech-bubble">
+                    <p>
+                        والله العظيم من وقت يلي تضايقتي ودنيتي كلها حاسسها معتمة ومالها طعمة..
+                        ما بيهونلي أبداً تنزلي دمعة، ولا بيهونلي يضيق صدرك بسببي لو شو ما صار.
+                    </p>
+                    <p>
+                        بعرف إني غلطت وخبصت، وحقك عليّ وعلى راسي من فوق يا بشرى..
+                        إنتِ مو بس حبيبتي، إنتِ أمان قلبي والنعمة الحلوة يلي بشكر ربي عليها كل ثانية.
+                    </p>
+                    <p class="sweet-note">
+                        "الدنيا كلا بتوقف، بس زعلك ما بيمر عادي.. دخيل قلبك وروقك يا ست البنات" 🤍
+                    </p>
+                </div>
+
+                <!-- Interactive Heartbeat Meter -->
+                <div class="heartbeat-widget">
+                    <div class="heart-pulse-box" id="heartPulseBox">
+                        <div class="pulsing-heart" id="pulsingHeart">💖</div>
+                        <span class="heart-caption" id="heartCaption">كبسي على قلبي لتشوفي شو محروق</span>
+                    </div>
+                    <div class="meter-bar-container">
+                        <div class="meter-bar" id="regretMeter"></div>
+                    </div>
+                    <div class="meter-label">نسبة ندم واشتياق براء: <strong id="meterPercent">1000%</strong></div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary prev-btn" data-prev="1">رجوع</button>
+                    <button class="btn btn-primary next-btn" data-next="3">تعالي شوفي شو ببالي 👈</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 3: Baraa's 3 Golden Promises -->
+        <section class="stage-section" id="stage3">
+            <div class="card glass-card">
+                <div class="badge-tag">عهد ووعد رجال محب 🤍</div>
+                <h2 class="section-title">وعود <span class="highlight-name">براء</span> لـ عيون بشرى</h2>
+                <p class="subtitle">كبسي على كل كرت لتشوفي الوعد يلي قاطعو على قلبي إلك:</p>
+
+                <div class="promises-grid">
+                    <div class="promise-card" tabindex="0">
+                        <div class="card-front">
+                            <span class="card-icon">🌙</span>
+                            <h3>الوعد الأول</h3>
+                            <p class="tap-hint">اضغطي للكشف ✨</p>
+                        </div>
+                        <div class="card-back">
+                            <h4>ما منام وإنتِ زعلانة</h4>
+                            <p>لو شو ما صار وبشو ما اختلفنا، بنحكي ومنتصالح وما بنام إلا وضحكتك مضوية الكون كلو وما في غصة بقلبك.</p>
+                        </div>
+                    </div>
+
+                    <div class="promise-card" tabindex="0">
+                        <div class="card-front">
+                            <span class="card-icon">👑</span>
+                            <h3>الوعد الثاني</h3>
+                            <p class="tap-hint">اضغطي للكشف ✨</p>
+                        </div>
+                        <div class="card-back">
+                            <h4>زعلك خط أحمر</h4>
+                            <p>زعلك غالي عليّ أغلى من روحي.. من اليوم ورايح رح حطك بنص عيوني وسكّر عليكِ برموشي وما خلي شي يدايقك.</p>
+                        </div>
+                    </div>
+
+                    <div class="promise-card" tabindex="0">
+                        <div class="card-front">
+                            <span class="card-icon">🕊️</span>
+                            <h3>الوعد الثالث</h3>
+                            <p class="tap-hint">اضغطي للكشف ✨</p>
+                        </div>
+                        <div class="card-back">
+                            <h4>التفاهم والدلال أولاً</h4>
+                            <p>رح أسمعك بكل هداوة ورواق، وما خلي زعل يدخل بيناتنا.. لأنو ما في شي بالدني كلها بيسوى زعلك يا بشرى.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary prev-btn" data-prev="2">رجوع</button>
+                    <button class="btn btn-primary next-btn" data-next="4">حضّرتلك باقة ورد.. تعي شوفيها 💐</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 4: Interactive Damascene Jasmine & Flower Bouquet -->
+        <section class="stage-section" id="stage4">
+            <div class="card glass-card">
+                <div class="badge-tag">باقة مصالحة من أرض الشام 🌸</div>
+                <h2 class="section-title">باقة ياسمين وورد لعيون <span class="highlight-name">بشرى</span></h2>
+                <p class="subtitle">لأنك بتستاهلي كل الدلال، نقّي شو بتحبي نضيف للباقة لترضي عن براء:</p>
+
+                <div class="gift-picker">
+                    <button class="gift-item-btn" data-item="jasmine" data-name="ياسمين شامي" data-icon="🌸">
+                        <span class="gift-emoji">🌸</span>
+                        <span class="gift-title">ياسمين شامي</span>
+                        <small>لطهر قلبك وريحتك الطيبة</small>
+                    </button>
+                    <button class="gift-item-btn" data-item="rose" data-name="جوري أحمر" data-icon="🌹">
+                        <span class="gift-emoji">🌹</span>
+                        <span class="gift-title">جوري أحمر</span>
+                        <small>رمز حب براء يلي ما بينتهي</small>
+                    </button>
+                    <button class="gift-item-btn" data-item="chocolate" data-name="شوكولا لذيذة" data-icon="🍫">
+                        <span class="gift-emoji">🍫</span>
+                        <span class="gift-title">شوكولا سويسرية</span>
+                        <small>لتحلي أيامك وتروقي</small>
+                    </button>
+                    <button class="gift-item-btn" data-item="coffee" data-name="فنجان قهوة ورواق" data-icon="☕">
+                        <span class="gift-emoji">☕</span>
+                        <span class="gift-title">قهوة ورواق</span>
+                        <small>نقعد نشربها سوا وننسى كل شي</small>
+                    </button>
+                </div>
+
+                <!-- Virtual Bouquet Display -->
+                <div class="bouquet-showcase">
+                    <div class="bouquet-basket" id="bouquetBasket">
+                        <div class="basket-handle"></div>
+                        <div class="basket-content" id="basketContent">
+                            <span class="flower-slot default-flower">🌸</span>
+                            <span class="flower-slot default-flower">🌹</span>
+                        </div>
+                    </div>
+                    <div class="basket-note" id="basketNote">
+                        نقيتي أحلى باقة بالدنيا.. متلك تماماً يا بشرى 🤍
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary prev-btn" data-prev="3">رجوع</button>
+                    <button class="btn btn-primary next-btn" data-next="5">وهلق.. جينا للقرار الحاسم 🥺</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 5: The Playful "Will You Forgive Me?" Decision -->
+        <section class="stage-section" id="stage5">
+            <div class="card glass-card decision-card">
+                <div class="badge-tag">لحظة الحقيقة 💖</div>
+                <h2 class="section-title">بشرى يا قمر الزمان..</h2>
+                <h3 class="syrian-quote-big">بتسامحي براء؟ 🥺</h3>
+                <p class="subtitle">والله براء ندمان وبحبك من كل قلبه ومستعد يعمل أي شي لترجعي تبتسمي</p>
+
+                <div class="decision-arena" id="decisionArena">
+                    <!-- The YES button -->
+                    <button class="btn btn-yes pulse-btn" id="yesBtn">
+                        <span class="btn-icon">❤️</span> سامحتك يا براء.. بحبك
+                    </button>
+
+                    <!-- The RUNAWAY NO button -->
+                    <button class="btn btn-no" id="noBtn">
+                        <span class="btn-icon">😤</span> لساتني زعلانة!
+                    </button>
+                </div>
+
+                <p class="runaway-hint" id="runawayHint">فكري فيها برواق.. الزر التاني عنيد شوي متل حب براء إلك 😉</p>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary prev-btn" data-prev="4">رجوع للباقة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 6: Celebration & Official Reconciliation Screen -->
+        <section class="stage-section" id="stage6">
+            <div class="card glass-card celebration-card">
+                <div class="celebration-confetti-trigger">🎉</div>
+                <div class="badge-tag success-tag">تم الصلح بحمد الله ودعوات الحب ❤️</div>
+                <h2 class="celebration-title">يا عيني ربك ما أحلاكي! تسلملي هالضحكة يا <span class="highlight-name">بشرى</span>! 💍🤍</h2>
+
+                <!-- Official Certificate / Reconciliation Card -->
+                <div class="peace-certificate" id="peaceCertificate">
+                    <div class="cert-border">
+                        <div class="cert-header">
+                            <span class="cert-stamp">معتمد بقلب براء ❤️</span>
+                            <h3>وثيقة صلح ومحبة أبدية 📜</h3>
+                        </div>
+                        <div class="cert-body">
+                            <p>
+                                تشهد هذه الوثيقة أن <strong>بشرى</strong> (ملكة الروقان وأحلى صبية) قد قبلت اعتذار <strong>براء</strong> بعد أن أقرّ بندمه الشديد وتعهّد بأن يضعها داخل رموش عينيه.
+                            </p>
+                            <div class="cert-details">
+                                <div><strong>التاريخ:</strong> <span id="currentDateText">اليوم وكل يوم</span></div>
+                                <div><strong>الحكم:</strong> <span class="cert-love">حب أبدي وتدليل بلا حدود ♾️</span></div>
+                            </div>
+                        </div>
+                        <div class="cert-signatures">
+                            <div class="sig-box">
+                                <span>توقيع العاشق النادم:</span>
+                                <strong>براء ✍️</strong>
+                            </div>
+                            <div class="sig-box">
+                                <span>توقيع الحبيبة المسامِحة:</span>
+                                <strong>بشرى 🤍</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Syrian Celebration Message -->
+                <div class="celebration-message">
+                    <p>
+                        الله لا يحرمني منك يا بشرى، ولا يحرمني من وجودك ومنور دنيتي..
+                        وعد رجال إنو ضل سندك وحبيبك يلي بفرح لفرحك وبزعل لزعلك.
+                        يلا هلق خلينا نفتح صفحة جديدة أحلى من كل يلي فات! ✨
+                    </p>
+                </div>
+
+                <!-- Post-Forgiveness Actions -->
+                <div class="celebration-actions">
+                    <a href="#" class="btn btn-whatsapp" id="whatsappShareBtn" target="_blank" rel="noopener noreferrer">
+                        <span class="btn-icon">💬</span> ابعتي لـ براء: "سامحتك يا روحي ❤️"
+                    </a>
+                    <button class="btn btn-outline" id="restartBtn">
+                        <span class="btn-icon">🔁</span> شوفي الرسالة من جديد
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>صُنعت بكل حب وشوق من <strong>براء</strong> لعيون <strong>بشرى</strong> 🤍 الياسمين الشامي ما بدبل</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
