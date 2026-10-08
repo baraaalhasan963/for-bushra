@@ -948,15 +948,16 @@ body {
     flex-wrap: wrap;
 }
 
-.btn-whatsapp {
-    background: #25d366;
+.btn-telegram {
+    background: #0088cc;
     color: #ffffff;
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
 }
 
-.btn-whatsapp:hover {
-    background: #20ba5a;
+.btn-telegram:hover {
+    background: #0077b5;
     transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 136, 204, 0.6);
 }
 
 .btn-outline {

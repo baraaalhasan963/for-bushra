@@ -447,11 +447,16 @@ document.addEventListener('DOMContentLoaded', () => {
         dateText.textContent = today.toLocaleDateString('ar-SY', options) + ' (وإلى الأبد)';
     }
 
-    // WhatsApp Direct Message Pre-filled text
-    const whatsappBtn = document.getElementById('whatsappShareBtn');
-    if (whatsappBtn) {
-        const message = "براء يا روحي.. شفت رسالتك واعتذارك بالموقع وسامحتك من كل قلبي ❤️ بس دير بالك عاد تزعلني مرة تانية يا دب! بحبك 🌸";
-        whatsappBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    // Telegram Direct Message link & auto-copy sweet message
+    const telegramBtn = document.getElementById('telegramShareBtn');
+    if (telegramBtn) {
+        telegramBtn.href = "https://t.me/b4raa_alhasan";
+        telegramBtn.addEventListener('click', () => {
+            const sweetText = "براء يا روحي.. شفت رسالتك واعتذارك بالموقع وسامحتك من كل قلبي ❤️ بس دير بالك عاد تزعلني مرة تانية يا دب! بحبك 🌸";
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(sweetText).catch(() => {});
+            }
+        });
     }
 
     // Restart Experience
